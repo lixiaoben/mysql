@@ -91,6 +91,7 @@ CREATE TABLE emp(
 )COMMENT '员工表';
 
 
+
 INSERT INTO emp (id, workno, NAME, gender, age, idcard, workaddress, entrydate)
 VALUES (1, '1', '柳岩666', '女', 20, '123456789012345678', '北京', '2000-01-01');
 
