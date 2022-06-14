@@ -544,8 +544,7 @@ DELETE FROM employee;
 > 注意事项：
 >
 > -  DELETE 语句的条件可以有，也可以没有，如果没有条件，则会删除整张表的所有数据
-> - DELETE 语句不能删除某一个字段的值(可以使用UPDATE，将该字段值置为NULL即可)
-> - 当进行删除全部数据操作时，datagrip会提示我们，询问是否确认删除，我们直接点击Execute即可
+> -  DELETE 语句不能删除某一个字段的值(可以使用UPDATE，将该字段值置为NULL即可)
 
 ### 2.6 DQL
 
@@ -1752,9 +1751,9 @@ ALTER TABLE emp ADD CONSTRAINT fk_emp_dept_id FOREIGN KEY (dept_id) REFERENCES d
 DELETE FROM dept WHERE id=1;
 ```
 
-我们发现父表的记录是可以正常的删除的，父表的数据删除之后，再打开子表 emp，我们发现子表emp的dept_id字段，原来dept_id为1的数据，现在都被置为NULL了。
-
   ![1655211863492](assets\1655211863492.png)
+
+我们发现父表的记录是可以正常的删除的，父表的数据删除之后，再打开子表 emp，我们发现子表emp的dept_id字段，原来dept_id为1的数据，现在都被置为NULL了。
 
 这就是SET NULL这种删除/更新行为的效果。
 
