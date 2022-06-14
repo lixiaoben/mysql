@@ -292,7 +292,7 @@ CREATE TABLE emp(
 
 SQL语句编写完毕之后，就可以在MySQL的命令行中执行SQL，然后也可以通过 desc 指令查询表结构
 信息：
-![1655208765480](E:\study\mysql\assets\1655208765480.png)
+![1655208765480](assets\1655208765480.png)
 
 表结构创建好了，里面的name字段是varchar类型，最大长度为10，也就意味着如果超过10将会报
 错，如果我们想修改这个字段的类型 或 修改字段的长度该如何操作呢？接下来再来讲解DDL语句中，
@@ -444,7 +444,7 @@ INSERT INTO employee(id,workno,name,gender,age,idcard,entrydate)VALUES (1,'1','�
 
 执行上述的SQL语句时，报错了，具体的错误信息如下：
 
- ![1655209012711](E:\study\mysql\assets\1655209012711.png)
+ ![1655209012711](assets\1655209012711.png)
 
 因为 employee 表的age字段类型为 tinyint，而且还是无符号的 unsigned ，所以取值只能在
 0-255 之间。
@@ -557,7 +557,7 @@ DQL英文全称是Data Query Language(数据查询语言)，数据查询语言�
 在这些网站中我们所看到的数据，实际都是需要从数据库中查询并展示的。而且在查询的过程中，可能
 还会涉及到条件、排序、分页等操作
 
- ![1655209135210](E:\study\mysql\assets\1655209135210.png)
+ ![1655209135210](assets\1655209135210.png)
 
 那么，本小节我们主要学习的就是如何进行数据的查询操作。 我们先来完成如下数据准备工作:
 
@@ -946,7 +946,7 @@ select address,gender,count(*) from emp group by gender,address;
 
 排序在日常开发中是非常常见的一个操作，有升序排序，也有降序排序。
 
-![1655209153140](E:\study\mysql\assets\1655209153140.png)
+![1655209153140](assets\1655209153140.png)
 
 **1) 语法**
 
@@ -987,7 +987,7 @@ SELECT * FROM emp ORDER BY age ASC , entrydate DESC;
 #### 2.6.7 分页查询
 
 分页操作在业务系统开发时，也是非常常见的一个功能，我们在网站中看到的各种各样的分页条，后台 都需要借助于数据库的分页操作。
-![1655209172423](E:\study\mysql\assets\1655209172423.png)
+![1655209172423](assets\1655209172423.png)
 
 ```mysql
 SELECT 字段列表 FROM  表名 LIMIT 起始索引,查询记录数 ; 
@@ -1049,7 +1049,7 @@ SELECT * FROM emp WHERE gender='男' AND age BETWEEN 20 AND 40 ORDER BY age ASC,
 
 在讲解DQL语句的执行顺序之前，我们已经讲解了DQL语句的完整语法，及编写顺序，接下来，我们要来说明的是DQL语句在执行时的执行顺序，也就是先执行那一部分，后执行那一部分。
 
-![1655209190312](E:\study\mysql\assets\1655209190312.png)
+![1655209190312](assets\1655209190312.png)
 
 **验证：**
 
@@ -1074,7 +1074,7 @@ SELECT e.name ename,e.age eage FROM emp e WHERE eage > 15 ORDER BY age ASC;
 
 执行上述SQL报错了：
 
-![1655209330670](E:\study\mysql\assets\1655209330670.png)
+![1655209330670](assets\1655209330670.png)
 
 由此我们可以得出结论: from 先执行，然后执行 where ，再执行select 。 
 
@@ -1093,7 +1093,7 @@ SELECT e.name ename, e.age eage FROM emp e WHERE e.age > 15 ORDER BY eage ASC;
 ### 2.7 DCL
 
 DCL英文全称是 Data Control Language(数据控制语言)，用来管理数据库用户、控制数据库的访问权限。
-![1655209372022](E:\study\mysql\assets\1655209372022.png)
+![1655209372022](assets\1655209372022.png)
 
 #### 2.7.1 管理用户
 
@@ -1107,7 +1107,7 @@ SELECT * FROM USER;
 
 查询的部分结果如下: 
 
-![1655209422380](E:\study\mysql\assets\1655209422380.png)
+![1655209422380](assets\1655209422380.png)
 
 其中 Host代表当前用户访问的主机, 如果为localhost, 仅代表只能够在当前本机访问，是不可以远程访问的。
 
@@ -1230,7 +1230,7 @@ REVOKE ALL ON mydb.* FROM 'enzhe'@'%';
 
 我们先来看两个场景：
 
- ![1655209452854](E:\study\mysql\assets\1655209452854.png)   ![1655209456454](E:\study\mysql\assets\1655209456454.png)
+ ![1655209452854](assets\1655209452854.png)   ![1655209456454](assets\1655209456454.png)
 
 1) 在企业的OA或其他的人力系统中，经常会提供的有这样一个功能，每一个员工登录上来之后都能够看到当前员工入职的天数。 而在数据库中，存储的都是入职日期，如 2000-11-12，那如何快速计算出天数呢？
 
@@ -1300,7 +1300,7 @@ SELECT SUBSTRING('Hello MySQL',1,5);
 
 案例:
 
-![1655209661989](E:\study\mysql\assets\1655209661989.png)
+![1655209661989](assets\1655209661989.png)
 
 由于业务需求变更，企业员工的工号，统一为5位数，目前不足5位数的全部在前面补0。比如：1号员工的工号应该为00001。
 
@@ -1310,7 +1310,7 @@ UPDATE emp SET workno = LPAD(workno,5,'0');
 
 处理完毕后, 具体的数据为:
 
- ![1655209704738](E:\study\mysql\assets\1655209704738.png)
+ ![1655209704738](assets\1655209704738.png)
 
 ### 3.2 数值函数
 
@@ -1587,7 +1587,7 @@ INSERT INTO tb_user(NAME,age,gender) VALUES ('Tom5',120,'男');
 ```
 
 上面，我们是通过编写SQL语句的形式来完成约束的指定，那加入我们是通过图形化界面来创建表结构时，又该如何来指定约束呢？ 只需要在创建表的时候，根据我们的需要选择对应的约束即可。
-![1655209845320](E:\study\mysql\assets\1655209845320.png)
+![1655209845320](assets\1655209845320.png)
 
 ### 4.3 外键约束
 
@@ -1596,7 +1596,7 @@ INSERT INTO tb_user(NAME,age,gender) VALUES ('Tom5',120,'男');
 外键：用来让两张表的数据之间建立连接，从而保证数据的一致性和完整性。
 
 我们来看一个例子：
-![1655210313165](E:\study\mysql\assets\1655210313165.png)
+![1655210313165](assets\1655210313165.png)
 
 左侧的emp表是员工表，里面存储员工的基本信息，包含员工的ID、姓名、年龄、职位、薪资、入职日期、上级主管ID、部门ID，在员工的信息中存储的是部门的ID dept_id，而这个部门的ID是关联的部门表dept的主键id，那emp表的dept_id就是外键,关联的是另一张表的主键。
 
@@ -1639,11 +1639,11 @@ INSERT INTO emp (id, NAME, age, job,salary, entrydate, managerid, dept_id) VALUE
 
 ````
 
-![1655210392287](E:\study\mysql\assets\1655210392287.png)
+![1655210392287](assets\1655210392287.png)
 
 接下来，我们可以做一个测试，删除id为1的部门信息
 
-![1655210476612](E:\study\mysql\assets\1655210476612.png)
+![1655210476612](assets\1655210476612.png)
 
 结果，我们看到删除成功，而删除成功之后，部门表不存在id为1的部门，而在emp表中还有很多的员工，关联的为id为1的部门，此时就出现了数据的不完整性。 而要想解决这个问题就得通过数据库的外键约束。
 
@@ -1673,7 +1673,7 @@ ALTER TABLE emp ADD CONSTRAINT fk_emp_dept_id FOREIGN KEY (dept_id) REFERENCES d
 
 添加了外键约束之后，我们再到dept表(父表)删除id为1的记录，然后看一下会发生什么现象。 此时将会报错，不能删除或更新父表记录，因为存在外键约束。
 
-![1655210618797](E:\study\mysql\assets\1655210618797.png)
+![1655210618797](assets\1655210618797.png)
 
 2) 删除外键
 
@@ -1722,7 +1722,7 @@ A. 修改父表id为1的记录，将id修改为6
 UPDATE dept SET id=6 WHERE id=1;
 ```
 
-![1655211256062](E:\study\mysql\assets\1655211256062.png)
+![1655211256062](assets\1655211256062.png)
 
 我们发现，原来在子表中dept_id值为1的记录，现在也变为6了，这就是CASCADE级联的效果。
 
@@ -1734,7 +1734,7 @@ B. 删除父表id为6的记录
 DELETE FROM dept WHERE id=6;
 ```
 
-![1655211479427](E:\study\mysql\assets\1655211479427.png)
+![1655211479427](assets\1655211479427.png)
 
 我们发现，父表的数据删除成功了，但是子表中关联的记录也被级联删除了。
 
@@ -1754,7 +1754,7 @@ DELETE FROM dept WHERE id=1;
 
 我们发现父表的记录是可以正常的删除的，父表的数据删除之后，再打开子表 emp，我们发现子表emp的dept_id字段，原来dept_id为1的数据，现在都被置为NULL了。
 
-  ![1655211863492](E:\study\mysql\assets\1655211863492.png)
+  ![1655211863492](assets\1655211863492.png)
 
 这就是SET NULL这种删除/更新行为的效果。
 
